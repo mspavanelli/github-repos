@@ -69,9 +69,19 @@ export const List = styled.ul`
 
   li {
     display: flex;
+    font-size: 1rem;
     justify-content: space-between;
     border-top: 1px solid #cdcdcd;
     padding-top: 15px;
+
+    a {
+      color: #222;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
 
     & + li {
       margin-top: 15px;
