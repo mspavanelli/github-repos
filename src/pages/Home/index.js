@@ -19,7 +19,7 @@ const Home = () => {
   }, [repoList])
 
   const handleInputChange = event => {
-    setNewRepositoryName(newRepositoryName)
+    setNewRepositoryName(event.target.value)
   }
 
   const handleAddNewRepo = async event => {
@@ -59,7 +59,10 @@ const Home = () => {
         <List>
           {repoList.map(repo => (
             <li key={repo.id}>
-              <Link to="/repository">{repo.name}</Link>
+              {repo.name}
+              <Link to={`/repository/${encodeURIComponent(repo.name)}`}>
+                details
+              </Link>
             </li>
           ))}
         </List>
