@@ -1,5 +1,13 @@
 import React from 'react'
 
-const App = () => <h1>Github Repos</h1>
+import Routes from './routes'
+import GlobalStyles from './styles/global'
+
+const App = () => (
+  <>
+    <GlobalStyles />
+    <Routes />
+  </>
+)
 
 export default App
