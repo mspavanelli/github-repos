@@ -15,15 +15,27 @@ export const Container = styled.div`
 export const Title = styled.header`
   align-items: center;
   display: flex;
+  flex-direction: column;
 
-  svg {
-    margin-right: 10px;
-    font-size: 1.5rem;
+  img {
+    height: auto;
+    width: 150px;
   }
 
-  h1 {
+  h2 {
+    align-items: center;
+    display: flex;
     font-size: 1.7rem;
     font-weight: 300;
+    flex-direction: column;
+    margin-top: 20px;
+    text-align: center;
+
+    small {
+      color: #555;
+      font-size: 0.7em;
+      margin-top: 10px;
+    }
   }
 `
 
@@ -33,49 +45,28 @@ export const Divisor = styled.hr`
   margin: 20px auto;
 `
 
-export const Form = styled.form`
-  display: flex;
-
-  input {
-    color: #222;
-    flex: 1;
-    padding: 10px 15px;
-  }
-
-  button {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    margin-left: 10px;
-    width: 40px;
-    color: #333;
-  }
-
-  button,
-  input {
-    font-size: 1rem;
-    border-radius: 4px;
-    border: 1px solid #999;
-
-    &:focus {
-      border-color: #333;
-    }
-  }
-`
-
 export const List = styled.ul`
   list-style: none;
   margin-top: 30px;
 
   li {
+    border-top: 1px solid #cdcdcd;
     display: flex;
     font-size: 1rem;
     justify-content: space-between;
-    border-top: 1px solid #cdcdcd;
     padding-top: 15px;
+    text-align: left;
 
     a {
       color: #222;
+    }
+
+    img {
+      border: 2px solid #eee;
+      border-radius: 50%;
+      height: 50px;
+      margin-right: 15px;
+      width: 50px;
     }
 
     & + li {

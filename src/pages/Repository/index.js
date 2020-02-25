@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useRouteMatch } from 'react-router-dom'
+import { useRouteMatch, Link } from 'react-router-dom'
 
 import api from '../../services/api'
 
@@ -20,28 +20,39 @@ const Repository = () => {
         api.get(`/repos/${repoName}/issues`, { params: { per_page: 5 } }),
       ])
 
-      const { owner, description } = repository.data
+      const { owner, description, name } = repository.data
       const { data } = issues
 
       setRepoData({
         avatar_url: owner.avatar_url,
         login: owner.login,
         description,
+        name,
       })
 
       setIssues(data)
     }
 
     fetchRepositoryData()
-  }, [])
+  }, [match.params.repository])
 
   return (
     <Container>
-      <Title>Repository {decodeURIComponent(match.params.repository)}</Title>
+      <Link to="/">Back</Link>
+      <Title>
+        <img src={repoData.avatar_url} alt="Logo" />
+        <h2>
+          {repoData.name}
+          <small>{repoData.description}</small>
+        </h2>
+      </Title>
       {issues.length > 0 && (
         <List>
           {issues.map(issue => (
-            <li key={issue.id}>{issue.title}</li>
+            <li key={issue.id}>
+              <img src={issue.user.avatar_url} alt={issue.user.login} />
+              {issue.title}
+            </li>
           ))}
         </List>
       )}
