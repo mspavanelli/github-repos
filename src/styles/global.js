@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     background: #f5f7fc;
     font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+    font-size: 18px;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -21,6 +22,9 @@ const GlobalStyles = createGlobalStyle`
     outline: 0;
   }
 
+  button {
+    cursor: pointer;
+  }
 `
 
 export default GlobalStyles

@@ -30,6 +30,7 @@
   "rules": {
     "import/prefer-default-export": "off",
     "prettier/prettier": "error",
+    "stylelint(declaration-empty-line-before)": "off",
     "react/jsx-filename-extension": [
       "warn",
       {
