@@ -51,7 +51,12 @@ const Repository = () => {
           {issues.map(issue => (
             <li key={issue.id}>
               <img src={issue.user.avatar_url} alt={issue.user.login} />
-              {issue.title}
+              <a href={issue.html_url}>
+                <p>{issue.title}</p>
+                {issue.labels.map(label => (
+                  <strong key={label.id}>{label.name}</strong>
+                ))}
+              </a>
             </li>
           ))}
         </List>

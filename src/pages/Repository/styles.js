@@ -59,6 +59,27 @@ export const List = styled.ul`
 
     a {
       color: #222;
+      flex: 1;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      p {
+        display: block;
+        text-align: left;
+      }
+
+      strong {
+        background: #e9e9e9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 5px;
+        margin-right: 5px;
+        padding: 1px 6px;
+      }
     }
 
     img {
