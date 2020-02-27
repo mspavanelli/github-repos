@@ -10,6 +10,7 @@ const Repository = () => {
 
   const [repoData, setRepoData] = useState({})
   const [issues, setIssues] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchRepositoryData = async () => {
@@ -31,10 +32,16 @@ const Repository = () => {
       })
 
       setIssues(data)
+
+      setLoading(false)
     }
 
     fetchRepositoryData()
   }, [match.params.repository])
+
+  if (loading) {
+    return <p>Loading...</p>
+  }
 
   return (
     <Container>
