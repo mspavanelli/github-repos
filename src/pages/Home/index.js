@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FaPlus, FaGithub } from 'react-icons/fa'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import api from '../../services/api'
 
@@ -35,39 +36,47 @@ const Home = () => {
   }
 
   return (
-    <Container>
-      <Title>
-        <FaGithub />
-        <h1>Github Repos</h1>
-      </Title>
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <Container>
+          <Title>
+            <FaGithub />
+            <h1>Github Repos</h1>
+          </Title>
 
-      <Divisor />
+          <Divisor />
 
-      <Form onSubmit={e => handleAddNewRepo(e)}>
-        <input
-          type="text"
-          placeholder="Add new repo"
-          onChange={e => handleInputChange(e)}
-          value={newRepositoryName}
-        />
-        <button type="button" onClick={e => handleAddNewRepo(e)}>
-          <FaPlus />
-        </button>
-      </Form>
+          <Form onSubmit={e => handleAddNewRepo(e)}>
+            <input
+              type="text"
+              placeholder="Add new repo"
+              onChange={e => handleInputChange(e)}
+              value={newRepositoryName}
+            />
+            <button type="button" onClick={e => handleAddNewRepo(e)}>
+              <FaPlus />
+            </button>
+          </Form>
 
-      {repoList.length > 0 && (
-        <List>
-          {repoList.map(repo => (
-            <li key={repo.id}>
-              {repo.name}
-              <Link to={`/repository/${encodeURIComponent(repo.name)}`}>
-                details
-              </Link>
-            </li>
-          ))}
-        </List>
-      )}
-    </Container>
+          {repoList.length > 0 && (
+            <List>
+              {repoList.map(repo => (
+                <li key={repo.id}>
+                  {repo.name}
+                  <Link to={`/repository/${encodeURIComponent(repo.name)}`}>
+                    details
+                  </Link>
+                </li>
+              ))}
+            </List>
+          )}
+        </Container>
+      </motion.div>
+    </AnimatePresence>
   )
 }
 
